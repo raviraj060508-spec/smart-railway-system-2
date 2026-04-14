@@ -1,23 +1,28 @@
-<!DOCTYPE html>
-<html>
-<body style="background:#0f172a;color:white;text-align:center;">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-<h1>🚆 Railway System</h1>
+<div class="navbar">🚆 Railway System</div>
 
+<div class="container">
+
+<div class="card">
 <form method="POST">
 <input name="name" placeholder="Passenger Name">
 <button name="action" value="book">Book</button>
 </form>
+</div>
 
+<div class="card">
 <form method="POST">
 <input name="pnr" placeholder="PNR">
 <button name="action" value="cancel">Cancel</button>
 </form>
+</div>
 
 <h3>{{ message }}</h3>
 
-<table border="1" style="margin:auto;background:white;color:black;">
-<tr><th>PNR</th><th>Name</th><th>Status</th><th>Seat</th></tr>
+<div class="card">
+<table border="1">
+<tr><th>PNR</th><th>Name</th><th>Status</th><th>Seat</th><th>Action</th></tr>
 
 {% for row in data %}
 <tr>
@@ -25,11 +30,11 @@
 <td>{{ row[1] }}</td>
 <td>{{ row[2] }}</td>
 <td>{{ row[3] }}</td>
+<td><a href="/download/{{ row[0] }}">Download</a></td>
 </tr>
 {% endfor %}
+
 </table>
+</div>
 
 <a href="/logout">Logout</a>
-
-</body>
-</html>
