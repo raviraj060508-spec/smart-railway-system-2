@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#0f172a;color:white;text-align:center;">
+
+<h1>🚆 Railway System</h1>
+
+<form method="POST">
+<input name="name" placeholder="Passenger Name">
+<button name="action" value="book">Book</button>
+</form>
+
+<form method="POST">
+<input name="pnr" placeholder="PNR">
+<button name="action" value="cancel">Cancel</button>
+</form>
+
+<h3>{{ message }}</h3>
+
+<table border="1" style="margin:auto;background:white;color:black;">
+<tr><th>PNR</th><th>Name</th><th>Status</th><th>Seat</th></tr>
+
+{% for row in data %}
+<tr>
+<td>{{ row[0] }}</td>
+<td>{{ row[1] }}</td>
+<td>{{ row[2] }}</td>
+<td>{{ row[3] }}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/logout">Logout</a>
+
+</body>
+</html>
